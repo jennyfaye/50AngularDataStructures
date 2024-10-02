@@ -28,6 +28,7 @@ import { MusicplaylistComponent } from "./components/musicplaylist/musicplaylist
 import { FoodmenulistComponent } from "./components/foodmenulist/foodmenulist.component";
 import { GrocerylistComponent } from "./components/grocerylist/grocerylist.component";
 import { ClassroomlistComponent } from "./components/classroomlist/classroomlist.component";
+import { InventorylistComponent } from "./components/inventorylist/inventorylist.component";
 
 
 const routes: Routes = [
@@ -54,6 +55,7 @@ const routes: Routes = [
   { path: 'foodmenulist', component: FoodmenulistComponent},
   { path: 'grocerylist', component: GrocerylistComponent},
   { path: 'classroomlist', component: ClassroomlistComponent},
+  { path: 'inventorylist', component: InventorylistComponent},
 ];
 
 @NgModule({
@@ -90,6 +92,7 @@ const routes: Routes = [
     FoodmenulistComponent,
     GrocerylistComponent,
     ClassroomlistComponent,
+    InventorylistComponent,
   ],
 
   providers: [

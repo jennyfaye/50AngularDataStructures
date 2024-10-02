@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Inventory List</h2>
+    <form>
+      <label for="item">Enter an item: </label> &nbsp;
+      <input name="item" id="item" type="text" [(ngModel)]="item" />
+      <br><br>
+      <label for="quantity">Enter the quantity: </label> &nbsp;
+      <input name="quantity" id="quantity" type="number" [(ngModel)]="quantity" />
+      <br><br>
+      <label for="price">Enter the price: </label> &nbsp;
+      <input name="price" id="price" type="number" [(ngModel)]="price" />
+      <br><br>
+      <button type="button" (click)="addItem()">Add Item</button>
+    </form>
+
+    <div>
+      <h3>List of Items:</h3>
+      <ul>
+        <li *ngFor="let item of itemList">
+          <p>Item: {{ item.item }}<br>
+          Quantity: {{ item.quantity }}<br>
+          Price: ₱{{ item.price }}<br></p>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

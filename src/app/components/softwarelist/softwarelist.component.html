@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Software List</h2>
+    <form >
+      <label for="software">Enter a product: </label> &nbsp;
+      <input name="software" id="software" type="text" [(ngModel)]="software"/>
+
+      <button (click)="addSoftware()">Add Software</button>
+    </form>
+
+    <div>
+        <h3>List of Softwares:</h3>
+        <ul>
+          <li *ngFor="let software of softwareList">
+            {{software}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

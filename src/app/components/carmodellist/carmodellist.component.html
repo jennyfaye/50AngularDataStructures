@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Car Model List</h2>
+    <form >
+      <label for="carModel">Enter a car model: </label> &nbsp;
+      <input name="carModel" id="carModel" type="text" [(ngModel)]="carModel"/>
+
+      <button (click)="addCarModel()">Add Car Model</button>
+    </form>
+
+    <div>
+        <h3>List of Car Models:</h3>
+        <ul>
+          <li *ngFor="let carModel of carModelList">
+            {{carModel}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

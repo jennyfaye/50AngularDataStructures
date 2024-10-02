@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Animal List</h2>
+    <form >
+      <label for="animal">Enter a animal: </label> &nbsp;
+      <input name="animal" id="animal" type="text" [(ngModel)]="animal"/>
+
+      <button (click)="addAnimal()">Add Animal</button>
+    </form>
+
+    <div>
+        <h3>List of Animals:</h3>
+        <ul>
+          <li *ngFor="let animal of animalList">
+            {{animal}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

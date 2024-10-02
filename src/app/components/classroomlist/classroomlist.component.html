@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Classroom List</h2>
+    <form >
+      <label for="name">Enter a student name: </label> &nbsp;
+      <input name="name" id="name" type="text" [(ngModel)]="name"/>
+
+      <button (click)="addName()">Add Name</button>
+    </form>
+
+    <div>
+        <h3>List of Student Name:</h3>
+        <ul>
+          <li *ngFor="let name of nameList">
+            {{name}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

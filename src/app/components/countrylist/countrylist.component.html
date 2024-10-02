@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Country List</h2>
+    <form >
+      <label for="country">Enter a country: </label> &nbsp;
+      <input name="country" id="country" type="text" [(ngModel)]="country"/>
+
+      <button (click)="addCountry()">Add Country</button>
+    </form>
+
+    <div>
+        <h3>List of Countries:</h3>
+        <ul>
+          <li *ngFor="let country of countryList">
+            {{country}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

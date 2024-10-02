@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>City List</h2>
+    <form >
+      <label for="city">Enter a city: </label> &nbsp;
+      <input name="city" id="city" type="text" [(ngModel)]="city"/>
+
+      <button (click)="addCity()">Add City</button>
+    </form>
+
+    <div>
+        <h3>List of Cities:</h3>
+        <ul>
+          <li *ngFor="let city of cityList">
+            {{city}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Game List</h2>
+    <form >
+      <label for="game">Enter a game: </label> &nbsp;
+      <input name="game" id="game" type="text" [(ngModel)]="game"/>
+
+      <button (click)="addGame()">Add Game</button>
+    </form>
+
+    <div>
+        <h3>List of Games:</h3>
+        <ul>
+          <li *ngFor="let game of gameList">
+            {{game}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

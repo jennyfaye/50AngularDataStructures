@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Music List</h2>
+    <form >
+      <label for="music">Enter a music: </label> &nbsp;
+      <input name="music" id="music" type="text" [(ngModel)]="music"/>
+
+      <button (click)="addMusic()">Add Music</button>
+    </form>
+
+    <div>
+        <h3>List of Musics:</h3>
+        <ul>
+          <li *ngFor="let music of musicList">
+            {{music}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

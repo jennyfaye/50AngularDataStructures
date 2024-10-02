@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Language List</h2>
+    <form >
+      <label for="language">Enter a language: </label> &nbsp;
+      <input name="language" id="language" type="text" [(ngModel)]="language"/>
+
+      <button (click)="addLanguage()">Add Language</button>
+    </form>
+
+    <div>
+        <h3>List of Languages:</h3>
+        <ul>
+          <li *ngFor="let language of languageList">
+            {{language}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

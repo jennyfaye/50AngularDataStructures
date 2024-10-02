@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Laptop List</h2>
+    <form >
+      <label for="laptop">Enter a laptop: </label> &nbsp;
+      <input name="laptop" id="laptop" type="text" [(ngModel)]="laptop"/>
+
+      <button (click)="addLaptop()">Add Laptop</button>
+    </form>
+
+    <div>
+        <h3>List of Laptops:</h3>
+        <ul>
+          <li *ngFor="let laptop of laptopList">
+            {{laptop}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

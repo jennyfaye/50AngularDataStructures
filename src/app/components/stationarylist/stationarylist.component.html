@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Stationary List</h2>
+    <form >
+      <label for="stationary">Enter a stationery: </label> &nbsp;
+      <input name="stationary" id="stationary" type="text" [(ngModel)]="stationary"/>
+
+      <button (click)="addStationary()">Add Stationery</button>
+    </form>
+
+    <div>
+        <h3>List of Stationaries:</h3>
+        <ul>
+          <li *ngFor="let stationary of stationaryList">
+            {{stationary}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Lecture List</h2>
+    <form >
+      <label for="lecture">Enter a lecture: </label> &nbsp;
+      <input name="lecture" id="lecture" type="text" [(ngModel)]="lecture"/>
+
+      <button (click)="addLecture()">Add Lecture</button>
+    </form>
+
+    <div>
+        <h3>List of Lectures:</h3>
+        <ul>
+          <li *ngFor="let lecture of lectureList">
+            {{lecture}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

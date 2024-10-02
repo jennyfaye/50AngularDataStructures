@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Destination List</h2>
+    <form >
+      <label for="destination">Enter a destination: </label> &nbsp;
+      <input name="destination" id="destination" type="text" [(ngModel)]="destination"/>
+
+      <button (click)="addDestination()">Add Destination</button>
+    </form>
+
+    <div>
+        <h3>List of Destinations:</h3>
+        <ul>
+          <li *ngFor="let destination of destinationList">
+            {{destination}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

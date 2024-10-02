@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Movie List</h2>
+    <form >
+      <label for="movie">Enter a movie: </label> &nbsp;
+      <input name="movie" id="movie" type="text" [(ngModel)]="movie"/>
+
+      <button (click)="addMovie()">Add Movie</button>
+    </form>
+
+    <div>
+        <h3>List of Movies:</h3>
+        <ul>
+          <li *ngFor="let movie of movieList">
+            {{movie}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

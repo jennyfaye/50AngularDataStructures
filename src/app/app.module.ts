@@ -7,11 +7,13 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule } from "@angular/forms";
 import { StudentlistComponent } from "./components/studentlist/studentlist.component";
 import { EmployeelistComponent } from "./components/employeelist/employeelist.component";
+import { FruitlistComponent } from "./components/fruitlist/fruitlist.component";
 
 
 const routes: Routes = [
   { path: 'studentlist', component: StudentlistComponent},
   { path: 'employeelist', component: EmployeelistComponent},
+  { path: 'fruitlist', component: FruitlistComponent},
 ];
 
 @NgModule({
@@ -28,6 +30,7 @@ const routes: Routes = [
     AppComponent,
     StudentlistComponent,
     EmployeelistComponent,
+    FruitlistComponent,
   ],
 
   providers: [

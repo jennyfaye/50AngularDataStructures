@@ -25,6 +25,7 @@ import { GamelistComponent } from "./components/gamelist/gamelist.component";
 import { SoftwarelistComponent } from "./components/softwarelist/softwarelist.component";
 import { PhonecontactlistComponent } from "./components/phonecontactlist/phonecontactlist.component";
 import { MusicplaylistComponent } from "./components/musicplaylist/musicplaylist.component";
+import { FoodmenulistComponent } from "./components/foodmenulist/foodmenulist.component";
 
 
 const routes: Routes = [
@@ -47,7 +48,8 @@ const routes: Routes = [
   { path: 'gamelist', component: GamelistComponent},
   { path: 'softwarelist', component: SoftwarelistComponent},
   { path: 'phonecontactlist', component: PhonecontactlistComponent},
-  { path: 'musicplaylistlist', component: MusicplaylistComponent},
+  { path: 'musicplaylist', component: MusicplaylistComponent},
+  { path: 'foodmenulist', component: FoodmenulistComponent},
 ];
 
 @NgModule({
@@ -81,6 +83,7 @@ const routes: Routes = [
     SoftwarelistComponent,
     PhonecontactlistComponent,
     MusicplaylistComponent,
+    FoodmenulistComponent,
   ],
 
   providers: [

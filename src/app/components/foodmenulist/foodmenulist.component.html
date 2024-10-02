@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Food Menu</h2>
+    <form >
+      <label for="food">Enter a food: </label> &nbsp;
+      <input name="food" id="food" type="text" [(ngModel)]="food"/>
+
+      <button (click)="addFood()">Add Food</button>
+    </form>
+
+    <div>
+        <h3>List of Foods:</h3>
+        <ul>
+          <li *ngFor="let food of foodList">
+            {{food}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

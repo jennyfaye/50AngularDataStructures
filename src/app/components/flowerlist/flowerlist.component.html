@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Flower List</h2>
+    <form >
+      <label for="flower">Enter a flower: </label> &nbsp;
+      <input name="flower" id="flower" type="text" [(ngModel)]="flower"/>
+
+      <button (click)="addFlower()">Add Flower</button>
+    </form>
+
+    <div>
+        <h3>List of Flowers:</h3>
+        <ul>
+          <li *ngFor="let flower of flowerList">
+            {{flower}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

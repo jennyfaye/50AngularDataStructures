@@ -8,12 +8,15 @@ import { FormsModule } from "@angular/forms";
 import { StudentlistComponent } from "./components/studentlist/studentlist.component";
 import { EmployeelistComponent } from "./components/employeelist/employeelist.component";
 import { FruitlistComponent } from "./components/fruitlist/fruitlist.component";
+import { CourselistComponent } from "./components/courselist/courselist.component";
 
 
 const routes: Routes = [
   { path: 'studentlist', component: StudentlistComponent},
   { path: 'employeelist', component: EmployeelistComponent},
   { path: 'fruitlist', component: FruitlistComponent},
+  { path: 'courselist', component: CourselistComponent},
+
 ];
 
 @NgModule({
@@ -31,6 +34,7 @@ const routes: Routes = [
     StudentlistComponent,
     EmployeelistComponent,
     FruitlistComponent,
+    CourselistComponent,
   ],
 
   providers: [

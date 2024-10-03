@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Accessory List</h2>
+    <form >
+      <label for="accessory">Enter an accessory: </label> &nbsp;
+      <input name="accessory" id="accessory" type="text" [(ngModel)]="accessory"/>
+
+      <button (click)="addAccessory()">Add Accessory</button>
+    </form>
+
+    <div>
+        <h3>List of Accessories:</h3>
+        <ul>
+          <li *ngFor="let accessory of accessoryList">
+            {{accessory}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

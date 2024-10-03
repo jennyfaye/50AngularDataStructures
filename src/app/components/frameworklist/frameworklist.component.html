@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Framework List</h2>
+    <form >
+      <label for="framework">Enter a framework: </label> &nbsp;
+      <input name="framework" id="framework" type="text" [(ngModel)]="framework"/>
+
+      <button (click)="addFramework()">Add Framework</button>
+    </form>
+
+    <div>
+        <h3>List of Frameworks:</h3>
+        <ul>
+          <li *ngFor="let framework of frameworkList">
+            {{framework}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

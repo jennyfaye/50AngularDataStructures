@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Laptop Specifications List</h2>
+    <form>
+      <label for="processor">Enter a laptop processor: </label> &nbsp;
+      <input name="processor" id="processor" type="text" [(ngModel)]="processor" />
+      <br><br>
+      <label for="ram">Enter RAM size (GB): </label> &nbsp;
+      <input name="ram" id="ram" type="number" [(ngModel)]="ram" />
+      <br><br>
+      <label for="os">Enter operating system: </label> &nbsp;
+      <input name="os" id="os" type="text" [(ngModel)]="os" /><br><br>
+
+      <button type="button" (click)="addSpec()">Add Laptop Specification</button>
+    </form>
+
+    <div>
+      <h3>List of Laptop Specifications:</h3>
+      <ul>
+        <li *ngFor="let spec of specList">
+          <p> Processor: {{ spec.processor }},<br>
+          RAM: {{ spec.ram }} GB,<br>
+          OS: {{ spec.os }}<br></p>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

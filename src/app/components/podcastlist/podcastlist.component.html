@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Podcast List</h2>
+    <form >
+      <label for="podcast">Enter a podcast: </label> &nbsp;
+      <input name="podcast" id="podcast" type="text" [(ngModel)]="podcast"/>
+
+      <button (click)="addPodcast()">Add Podcast</button>
+    </form>
+
+    <div>
+        <h3>List of Podcasts:</h3>
+        <ul>
+          <li *ngFor="let podcast of podcastList">
+            {{podcast}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

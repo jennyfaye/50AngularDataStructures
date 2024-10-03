@@ -45,6 +45,7 @@ import { BuildinglistComponent } from "./components/buildinglist/buildinglist.co
 import { PaintinglistComponent } from "./components/paintinglist/paintinglist.component";
 import { ArtistlistComponent } from "./components/artistlist/artistlist.component";
 import { ComposerlistComponent } from "./components/composerlist/composerlist.component";
+import { PodcastlistComponent } from "./components/podcastlist/podcastlist.component";
 
 
 const routes: Routes = [
@@ -88,6 +89,7 @@ const routes: Routes = [
   { path: 'paintinglist', component: PaintinglistComponent},
   { path: 'artistlist', component: ArtistlistComponent},
   { path: 'composerlist', component: ComposerlistComponent},
+  { path: 'podcastlist', component: PodcastlistComponent},
 ];
 
 @NgModule({
@@ -141,6 +143,7 @@ const routes: Routes = [
     PaintinglistComponent,
     ArtistlistComponent,
     ComposerlistComponent,
+    PodcastlistComponent,
   ],
 
   providers: [

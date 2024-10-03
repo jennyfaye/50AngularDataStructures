@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Furniture List</h2>
+    <form >
+      <label for="furniture">Enter a furniture: </label> &nbsp;
+      <input name="furniture" id="furniture" type="text" [(ngModel)]="furniture"/>
+
+      <button (click)="addFurniture()">Add Furniture</button>
+    </form>
+
+    <div>
+        <h3>List of Furnitures:</h3>
+        <ul>
+          <li *ngFor="let furniture of furnitureList">
+            {{furniture}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Computer Hardware List</h2>
+    <form >
+      <label for="hardware">Enter a computer hardware: </label> &nbsp;
+      <input name="hardware" id="hardware" type="text" [(ngModel)]="hardware"/>
+
+      <button (click)="addHardware()">Add Computer Hardware</button>
+    </form>
+
+    <div>
+        <h3>List of Computer Hardwares:</h3>
+        <ul>
+          <li *ngFor="let hardware of hardwareList">
+            {{hardware}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

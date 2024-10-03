@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Budget List</h2>
+    <form>
+      <label for="item">Enter an item: </label> &nbsp;
+      <input name="item" id="item" type="text" [(ngModel)]="item" />
+      <br><br>
+      <label for="amount">Enter an amount: </label> &nbsp;
+      <input name="amount" id="amount" type="number" [(ngModel)]="amount" />
+      <br><br>
+      <button type="button" (click)="addBudget()">Add Budget</button>
+    </form>
+
+    <div>
+      <h3>List of Budgets:</h3>
+      <ul>
+        <li *ngFor="let item of budgetList">
+          <p>Item: {{ item.item }}<br>
+          Budget: ₱{{ item.amount }}</p>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

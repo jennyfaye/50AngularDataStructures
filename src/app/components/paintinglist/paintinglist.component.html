@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Painting List</h2>
+    <form >
+      <label for="painting">Enter a painting: </label> &nbsp;
+      <input name="painting" id="painting" type="text" [(ngModel)]="painting"/>
+
+      <button (click)="addPainting()">Add Painting</button>
+    </form>
+
+    <div>
+        <h3>List of Paintings:</h3>
+        <ul>
+          <li *ngFor="let painting of paintingList">
+            {{painting}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

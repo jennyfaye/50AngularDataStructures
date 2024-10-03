@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Meal Plan List</h2>
+    <form>
+      <label for="day">Enter a day: </label> &nbsp;
+      <input name="day" id="day" type="text" [(ngModel)]="day" />
+      <br><br>
+      <label for="breakfast">Enter breakfast: </label> &nbsp;
+      <input name="breakfast" id="breakfast" type="text" [(ngModel)]="breakfast" />
+      <br><br>
+      <label for="lunch">Enter lunch: </label> &nbsp;
+      <input name="lunch" id="lunch" type="text" [(ngModel)]="lunch" />
+      <br><br>
+      <label for="dinner">Enter dinner: </label> &nbsp;
+      <input name="dinner" id="dinner" type="text" [(ngModel)]="dinner" />
+      <br><br>
+
+      <button type="button" (click)="addMeal()">Add Meal Plan</button>
+    </form>
+
+    <div>
+      <h3>List of Meal Plans:</h3>
+      <ul>
+        <li *ngFor="let day of mealList">
+          <p>Day: {{ day.day }}<br>
+          Breakfast: {{ day.breakfast }}<br>
+          Lunch: {{ day.lunch }}<br>
+          Dinner: {{ day.dinner }}<br></p>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>TV Show List</h2>
+    <form >
+      <label for="show">Enter a TV show: </label> &nbsp;
+      <input name="show" id="show" type="text" [(ngModel)]="show"/>
+
+      <button (click)="addShow()">Add TV Show</button>
+    </form>
+
+    <div>
+        <h3>List of TV Shows:</h3>
+        <ul>
+          <li *ngFor="let show of showList">
+            {{show}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

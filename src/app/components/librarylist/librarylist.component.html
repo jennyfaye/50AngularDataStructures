@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Library List</h2>
+    <form >
+      <label for="library">Enter a library: </label> &nbsp;
+      <input name="library" id="library" type="text" [(ngModel)]="library"/>
+
+      <button (click)="addLibrary()">Add Library</button>
+    </form>
+
+    <div>
+        <h3>List of Libraries:</h3>
+        <ul>
+          <li *ngFor="let library of libraryList">
+            {{library}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

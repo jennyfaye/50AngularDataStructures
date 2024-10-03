@@ -54,6 +54,7 @@ import { TourlistComponent } from "./components/tourlist/tourlist.component";
 import { EventlistComponent } from "./components/eventlist/eventlist.component";
 import { DevelopertoollistComponent } from "./components/developertoollist/developertoollist.component";
 import { FrameworklistComponent } from "./components/frameworklist/frameworklist.component";
+import { LibrarylistComponent } from "./components/librarylist/librarylist.component";
 
 
 const routes: Routes = [
@@ -106,6 +107,7 @@ const routes: Routes = [
   { path: 'eventlist', component: EventlistComponent},
   { path: 'developertoollist', component: DevelopertoollistComponent},
   { path: 'frameworklist', component: FrameworklistComponent},
+  { path: 'librarylist', component: LibrarylistComponent},
 ];
 
 @NgModule({
@@ -168,6 +170,7 @@ const routes: Routes = [
     EventlistComponent,
     DevelopertoollistComponent,
     FrameworklistComponent,
+    LibrarylistComponent,
   ],
 
   providers: [

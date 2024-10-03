@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Video List</h2>
+    <form >
+      <label for="video">Enter a Video: </label> &nbsp;
+      <input name="video" id="video" type="text" [(ngModel)]="video"/>
+
+      <button (click)="addVideo()">Add Video</button>
+    </form>
+
+    <div>
+        <h3>List of Videos:</h3>
+        <ul>
+          <li *ngFor="let video of videoList">
+            {{video}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Tour List</h2>
+    <form>
+      <label for="artist">Name of the artist: </label> &nbsp;
+      <input name="artist" id="artist" type="text" [(ngModel)]="artist"/><br><br>
+
+      <label for="date">Enter a tour date: </label> &nbsp;
+      <input name="date" id="date" type="date" [(ngModel)]="date"/><br><br>
+
+      <label for="location">Enter location: </label> &nbsp;
+      <input name="location" id="location" type="text" [(ngModel)]="location"/><br><br>
+
+      <button type="button" (click)="addDate()">Add Tour Date</button>
+    </form>
+
+    <div>
+      <h3>List of Tour Dates:</h3>
+      <ul>
+        <li *ngFor="let artist of tourList">
+          <p>Artist: {{ artist.artist }}<br>
+          Date: {{ artist.date }}<br>
+          Location: {{ artist.location }}</p>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

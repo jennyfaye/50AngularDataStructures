@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Developer Tools List</h2>
+    <form >
+      <label for="tool">Enter a developer tools: </label> &nbsp;
+      <input name="tool" id="tool" type="text" [(ngModel)]="tool"/>
+
+      <button (click)="addTool()">Add Developer Tools</button>
+    </form>
+
+    <div>
+        <h3>List of Developer Tools:</h3>
+        <ul>
+          <li *ngFor="let tool of toolList">
+            {{tool}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

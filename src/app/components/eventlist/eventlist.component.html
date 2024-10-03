@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Event List</h2>
+    <form>
+      <label for="event">Name of the event: </label> &nbsp;
+      <input name="event" id="event" type="text" [(ngModel)]="event" />
+      <br><br>
+      <label for="date">Enter a date: </label> &nbsp;
+      <input name="date" id="date" type="date" [(ngModel)]="date" />
+      <br><br>
+      <button type="button" (click)="addEvent()">Add Event</button>
+    </form>
+
+    <div>
+      <h3>List of Events:</h3>
+      <ul>
+        <li *ngFor="let event of eventList">
+          <p>Event: {{ event.event }}<br>
+          Date: {{ event.date }}</p>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

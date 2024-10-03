@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Exercise List</h2>
+    <form >
+      <label for="exercise">Enter a exercise: </label> &nbsp;
+      <input name="exercise" id="exercise" type="text" [(ngModel)]="exercise"/>
+
+      <button (click)="addExercise()">Add Exercise</button>
+    </form>
+
+    <div>
+        <h3>List of Exercises:</h3>
+        <ul>
+          <li *ngFor="let exercise of exerciseList">
+            {{exercise}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

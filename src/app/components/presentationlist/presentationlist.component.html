@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Presentation List</h2>
+    <form >
+      <label for="presentation">Enter a presentation: </label> &nbsp;
+      <input name="presentation" id="presentation" type="text" [(ngModel)]="presentation"/>
+
+      <button (click)="addPresentation()">Add Presentation</button>
+    </form>
+
+    <div>
+        <h3>List of Presentations:</h3>
+        <ul>
+          <li *ngFor="let presentation of presentationList">
+            {{presentation}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

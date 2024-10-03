@@ -49,6 +49,7 @@ import { PodcastlistComponent } from "./components/podcastlist/podcastlist.compo
 import { ExerciselistComponent } from "./components/exerciselist/exerciselist.component";
 import { MealplanlistComponent } from "./components/mealplanlist/mealplanlist.component";
 import { BudgetlistComponent } from "./components/budgetlist/budgetlist.component";
+import { PresentationlistComponent } from "./components/presentationlist/presentationlist.component";
 
 
 const routes: Routes = [
@@ -96,6 +97,7 @@ const routes: Routes = [
   { path: 'exerciselist', component: ExerciselistComponent},
   { path: 'mealplanlist', component: MealplanlistComponent},
   { path: 'budgetlist', component: BudgetlistComponent},
+  { path: 'presentationlist', component: PresentationlistComponent},
 ];
 
 @NgModule({
@@ -153,6 +155,7 @@ const routes: Routes = [
     ExerciselistComponent,
     MealplanlistComponent,
     BudgetlistComponent,
+    PresentationlistComponent,
   ],
 
   providers: [

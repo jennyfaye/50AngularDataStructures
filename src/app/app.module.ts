@@ -36,6 +36,7 @@ import { DestinationlistComponent } from "./components/destinationlist/destinati
 import { LaptoplistComponent } from "./components/laptoplist/laptoplist.component";
 import { LaptopspeclistComponent } from "./components/laptopspeclist/laptopspeclist.component";
 import { ComputerhardwarelistComponent } from "./components/computerhardwarelist/computerhardwarelist.component";
+import { MobileapplistComponent } from "./components/mobileapplist/mobileapplist.component";
 
 
 const routes: Routes = [
@@ -70,6 +71,7 @@ const routes: Routes = [
   { path: 'laptoplist', component: LaptoplistComponent},
   { path: 'laptopspeclist', component: LaptopspeclistComponent},
   { path: 'computerhardwarelist', component: ComputerhardwarelistComponent},
+  { path: 'mobileapplist', component: MobileapplistComponent},
 ];
 
 @NgModule({
@@ -114,6 +116,7 @@ const routes: Routes = [
     LaptoplistComponent,
     LaptopspeclistComponent,
     ComputerhardwarelistComponent,
+    MobileapplistComponent,
   ],
 
   providers: [

@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Mobile App List</h2>
+    <form >
+      <label for="apps">Enter a mobile app: </label> &nbsp;
+      <input name="apps" id="apps" type="text" [(ngModel)]="apps"/>
+
+      <button (click)="addApp()">Add Mobile App</button>
+    </form>
+
+    <div>
+        <h3>List of Mobile Apps:</h3>
+        <ul>
+          <li *ngFor="let apps of appsList">
+            {{apps}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

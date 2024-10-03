@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Composer List</h2>
+    <form >
+      <label for="composer">Enter a composer: </label> &nbsp;
+      <input name="composer" id="composer" type="text" [(ngModel)]="composer"/>
+
+      <button (click)="addComposer()">Add Composer</button>
+    </form>
+
+    <div>
+        <h3>List of Composers:</h3>
+        <ul>
+          <li *ngFor="let composer of composerList">
+            {{composer}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

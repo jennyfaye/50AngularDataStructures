@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Building List</h2>
+    <form >
+      <label for="building">Enter a building: </label> &nbsp;
+      <input name="building" id="building" type="text" [(ngModel)]="building"/>
+
+      <button (click)="addBuilding()">Add Building</button>
+    </form>
+
+    <div>
+        <h3>List of Buildings:</h3>
+        <ul>
+          <li *ngFor="let building of buildingList">
+            {{building}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

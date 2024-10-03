@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Artist List</h2>
+    <form >
+      <label for="artist">Enter an artist: </label> &nbsp;
+      <input name="sartist" id="artist" type="text" [(ngModel)]="artist"/>
+
+      <button (click)="addArtist()">Add Artist</button>
+    </form>
+
+    <div>
+        <h3>List of Artists:</h3>
+        <ul>
+          <li *ngFor="let artist of artistList">
+            {{artist}}
+          </li>
+        </ul>
+    </div>
+  </body>
+</html>

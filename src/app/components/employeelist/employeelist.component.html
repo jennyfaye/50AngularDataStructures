@@ -1,21 +1,34 @@
-<!octype html>
+<!doctype html>
 <html>
   <body>
     <h2>Employee List</h2>
     <form >
       <label for="employee">Enter a name: </label> &nbsp;
-      <input name="employee" id="employee" type="text" [(ngModel)]="name"/>
+      <input name="employee" id="employee" type="text" [(ngModel)]="employee"/>
 
       <button (click)="addEmployee()">Add Name</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Employee Names:</h3>
-        <ul>
-          <li *ngFor="let name of nameList">
-            {{name}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Employee Names</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Employee Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employeeList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ employee }}</td>
+          <td>
+            <button (click)="updateEmployee(i)">Edit</button> &nbsp;
+            <button (click)="deleteEmployee(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

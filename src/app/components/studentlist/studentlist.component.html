@@ -4,18 +4,31 @@
     <h2>Student List</h2>
     <form >
       <label for="student">Enter a name: </label> &nbsp;
-      <input name="student" id="student" type="text" [(ngModel)]="name"/>
+      <input name="student" id="student" type="text" [(ngModel)]="student"/>
 
       <button (click)="addStudent()">Add Name</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Student Names:</h3>
-        <ul>
-          <li *ngFor="let name of nameList">
-            {{name}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Student Names</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Student Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of studentList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ student }}</td>
+          <td>
+            <button (click)="updateStudent(i)">Edit</button> &nbsp;
+            <button (click)="deleteStudent(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

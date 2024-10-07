@@ -8,14 +8,27 @@
 
       <button (click)="addBook()">Add Book</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Books:</h3>
-        <ul>
-          <li *ngFor="let book of bookList">
-            {{book}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Books</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Books</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of bookList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ book }}</td>
+          <td>
+            <button (click)="updateBook(i)">Edit</button> &nbsp;
+            <button (click)="deleteBook(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

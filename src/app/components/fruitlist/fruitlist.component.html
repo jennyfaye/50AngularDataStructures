@@ -8,14 +8,27 @@
 
       <button (click)="addFruit()">Add Fruit</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Fruits:</h3>
-        <ul>
-          <li *ngFor="let fruit of fruitList">
-            {{fruit}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Fruit Names</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Fruit Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fruit of fruitList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ fruit }}</td>
+          <td>
+            <button (click)="updateFruit(i)">Edit</button> &nbsp;
+            <button (click)="deleteFruit(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

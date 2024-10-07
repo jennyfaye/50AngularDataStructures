@@ -1,3 +1,4 @@
+import { CourselistService } from './../../services/courselist.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,10 +7,30 @@ import { Component } from '@angular/core';
   styleUrl: './courselist.component.css'
 })
 export class CourselistComponent {
-  courseList: string[] = ["BSIT", "BSTM"];
+  courseList: string[] = [];
   course: string = '';
 
-  addCourse() {
-    this.courseList.push(this.course);
+  constructor(private courselistService: CourselistService){
+  }
+
+  ngOnInit(): void {
+    this.courseList = this.courselistService.getCourse();
+  }
+
+  addCourse(): void {
+    this.courselistService.addCourse(this.course);
+    this.course = '';
+  }
+
+  updateCourse(index: number): void {
+    const currentName = this.courseList[index];
+    const newName = prompt('Enter new name for the course:', currentName);
+    if (newName !== null && newName.trim() !== '') {
+      this.courselistService.updateCourse(index, newName.trim());
+    }
+  }
+
+  deleteCourse(index: number): void {
+    this.courselistService.deleteCourse(index);
   }
 }

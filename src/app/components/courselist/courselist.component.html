@@ -8,14 +8,27 @@
 
       <button (click)="addCourse()">Add Course</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Courses:</h3>
-        <ul>
-          <li *ngFor="let course of courseList">
-            {{course}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Courses</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Courses</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let course of courseList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ course }}</td>
+          <td>
+            <button (click)="updateCourse(i)">Edit</button> &nbsp;
+            <button (click)="deleteCourse(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

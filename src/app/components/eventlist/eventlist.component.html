@@ -11,15 +11,29 @@
       <br><br>
       <button type="button" (click)="addEvent()">Add Event</button>
     </form>
+    <br>
 
-    <div>
-      <h3>List of Events:</h3>
-      <ul>
-        <li *ngFor="let event of eventList">
-          <p>Event: {{ event.event }}<br>
-          Date: {{ event.date }}</p>
-        </li>
-      </ul>
-    </div>
+    <h3>List of Events</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Event</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of eventList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ event.event }}</td>
+          <td>{{ event.date }}</td>
+          <td>
+            <button (click)="updateEvent(i)">Edit</button> &nbsp;
+            <button (click)="deleteEvent(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

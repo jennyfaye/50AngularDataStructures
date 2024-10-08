@@ -8,14 +8,27 @@
 
       <button (click)="addBuilding()">Add Building</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Buildings:</h3>
-        <ul>
-          <li *ngFor="let building of buildingList">
-            {{building}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Buildings</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Building</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let building of buildingList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ building }}</td>
+          <td>
+            <button (click)="updateBuilding(i)">Edit</button> &nbsp;
+            <button (click)="deleteBuilding(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

@@ -8,14 +8,27 @@
 
       <button (click)="addExercise()">Add Exercise</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Exercises:</h3>
-        <ul>
-          <li *ngFor="let exercise of exerciseList">
-            {{exercise}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Exercises</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Exercise</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let exercise of exerciseList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ exercise }}</td>
+          <td>
+            <button (click)="updateExercise(i)">Edit</button> &nbsp;
+            <button (click)="deleteExercise(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

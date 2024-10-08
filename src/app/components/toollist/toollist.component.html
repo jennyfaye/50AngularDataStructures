@@ -9,13 +9,25 @@
       <button (click)="addTool()">Add Tool</button>
     </form>
 
-    <div>
-        <h3>List of Tools:</h3>
-        <ul>
-          <li *ngFor="let tool of toolList">
-            {{tool}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Tools</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Tool</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tool of toolList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ tool }}</td>
+          <td>
+            <button (click)="updateTool(i)">Edit</button> &nbsp;
+            <button (click)="deleteTool(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

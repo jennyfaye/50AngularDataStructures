@@ -8,14 +8,27 @@
 
       <button (click)="addLecture()">Add Lecture</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Lectures:</h3>
-        <ul>
-          <li *ngFor="let lecture of lectureList">
-            {{lecture}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Lectures</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Lecture</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let lecture of lectureList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ lecture }}</td>
+          <td>
+            <button (click)="updateLecture(i)">Edit</button> &nbsp;
+            <button (click)="deleteLecture(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

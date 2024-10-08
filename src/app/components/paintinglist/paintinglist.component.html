@@ -8,14 +8,27 @@
 
       <button (click)="addPainting()">Add Painting</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Paintings:</h3>
-        <ul>
-          <li *ngFor="let painting of paintingList">
-            {{painting}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Paintings</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Painting</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let painting of paintingList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ painting }}</td>
+          <td>
+            <button (click)="updatePainting(i)">Edit</button> &nbsp;
+            <button (click)="deletePainting(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

@@ -8,14 +8,27 @@
 
       <button (click)="addLaptop()">Add Laptop</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Laptops:</h3>
-        <ul>
-          <li *ngFor="let laptop of laptopList">
-            {{laptop}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Laptop Models</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Laptop Model</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let laptop of laptopList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ laptop }}</td>
+          <td>
+            <button (click)="updateLaptop(i)">Edit</button> &nbsp;
+            <button (click)="deleteLaptop(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

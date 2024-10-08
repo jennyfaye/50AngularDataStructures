@@ -18,17 +18,33 @@
 
       <button type="button" (click)="addMeal()">Add Meal Plan</button>
     </form>
+    <br>
 
-    <div>
-      <h3>List of Meal Plans:</h3>
-      <ul>
-        <li *ngFor="let day of mealList">
-          <p>Day: {{ day.day }}<br>
-          Breakfast: {{ day.breakfast }}<br>
-          Lunch: {{ day.lunch }}<br>
-          Dinner: {{ day.dinner }}<br></p>
-        </li>
-      </ul>
-    </div>
+    <h3>List of Meal Plan</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Day</th>
+          <th>Breakfast</th>
+          <th>Lunch</th>
+          <th>Dinner</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let day of mealList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ day.day }}</td>
+          <td>{{ day.breakfast }}</td>
+          <td>{{ day.lunch }}</td>
+          <td>{{ day.dinner }}</td>
+          <td>
+            <button (click)="updateMeal(i)">Edit</button> &nbsp;
+            <button (click)="deleteMeal(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

@@ -9,13 +9,26 @@
       <button (click)="addCountry()">Add Country</button>
     </form>
 
-    <div>
-        <h3>List of Countries:</h3>
-        <ul>
-          <li *ngFor="let country of countryList">
-            {{country}}
-          </li>
-        </ul>
-    </div>
+
+    <h3>List of Countries</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Country</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let country of countryList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ country }}</td>
+          <td>
+            <button (click)="updateCountry(i)">Edit</button> &nbsp;
+            <button (click)="deleteCountry(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

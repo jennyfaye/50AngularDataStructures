@@ -1,3 +1,4 @@
+import { DevelopertoollistService } from './../../services/developertoollist.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,10 +7,29 @@ import { Component } from '@angular/core';
   styleUrl: './developertoollist.component.css'
 })
 export class DevelopertoollistComponent {
-  toolList: string[] = ["Version Control Systems", "Integrated Development Environments (IDEs)"];
+  toolList: string[] = [];
   tool: string = '';
+  constructor(private developertoollistService: DevelopertoollistService){
+  }
 
-  addTool() {
-    this.toolList.push(this.tool);
+  ngOnInit(): void {
+    this.toolList = this.developertoollistService.getTool();
+  }
+
+  addTool(): void {
+    this.developertoollistService.addTool(this.tool);
+    this.tool = '';
+  }
+
+  updateTool(index: number): void {
+    const currentName = this.toolList[index];
+    const newName = prompt('Enter new developer tool:', currentName);
+    if (newName !== null && newName.trim() !== '') {
+      this.developertoollistService.updateTool(index, newName.trim());
+    }
+  }
+
+  deleteTool(index: number): void {
+    this.developertoollistService.deleteTool(index);
   }
 }

@@ -1,3 +1,4 @@
+import { PhonecontactlistService } from './../../services/phonecontactlist.service';
 import { Component, OnInit } from '@angular/core';
 import { PhoneContact } from './phonecontact';
 
@@ -11,19 +12,39 @@ export class PhonecontactlistComponent implements OnInit{
   name: string = '';
   number: number = 0;
 
-  ngOnInit() {
+  constructor(private phonecontactlistService: PhonecontactlistService){
   }
 
-  getPhoneContact(): PhoneContact[]{
-    return this.contactList;
+  ngOnInit(): void {
+    this.contactList = this.phonecontactlistService.getContact();
   }
 
-  addPcontact() {
-    const newContact: PhoneContact = {
-      contactList: '',
-      name: this.name,
-      number: this.number
-    };
-    this.contactList.push(newContact);
+  addContact(): void {
+    if (this.name && this.number) {
+      const newContact: PhoneContact = {
+        name: this.name, number: this.number,
+        contactList: ''
+      };
+      this.phonecontactlistService.addContact(newContact);
+      this.name = '';
+      this.number = 0;
+    }
+  }
+
+  updateContact(index: number): void {
+    const currentContact = this.contactList[index];
+    const newName = prompt('Enter new name:', currentContact.name);
+    const newNumber = prompt('Enter new phone number:', currentContact.number.toString());
+
+    if (newName !== null && newName.trim() !== '' && newNumber !== null && newNumber.trim() !== '') {
+      this.phonecontactlistService.updateContact(index, {
+        name: newName.trim(), number: +newNumber,
+        contactList: ''
+      });
+    }
+  }
+
+  deleteContact(index: number): void {
+    this.phonecontactlistService.deleteContact(index);
   }
 }

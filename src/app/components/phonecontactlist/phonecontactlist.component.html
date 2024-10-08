@@ -9,16 +9,31 @@
       <label for="number">Enter a phone number: </label> &nbsp;
       <input name="number" id="number" type="number" [(ngModel)]="number" /><br><br>
 
-      <button type="button" (click)="addPcontact()">Add Phone Contact</button>
+      <button type="button" (click)="addContact()">Add Phone Contact</button>
     </form>
+    <br>
 
-    <div>
-      <h3>List of Phone Contacts:</h3>
-      <ul>
-        <li *ngFor="let contact of contactList">
-          {{ contact.name }} - {{ contact.number }}
-        </li>
-      </ul>
-    </div>
+    <h3>List of Phone Contact</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Contact Name</th>
+          <th>Phone Number</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contact of contactList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ contact.name }}</td>
+          <td>{{ contact.number }}</td>
+          <td>
+            <button (click)="updateContact(i)">Edit</button> &nbsp;
+            <button (click)="deleteContact(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

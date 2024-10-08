@@ -3,19 +3,32 @@
   <body>
     <h2>Stationary List</h2>
     <form >
-      <label for="stationary">Enter a stationery: </label> &nbsp;
+      <label for="stationary">Enter a stationary: </label> &nbsp;
       <input name="stationary" id="stationary" type="text" [(ngModel)]="stationary"/>
 
       <button (click)="addStationary()">Add Stationery</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Stationaries:</h3>
-        <ul>
-          <li *ngFor="let stationary of stationaryList">
-            {{stationary}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Stationaries</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Stationary</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let stationary of stationaryList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ stationary }}</td>
+          <td>
+            <button (click)="updateStationary(i)">Edit</button> &nbsp;
+            <button (click)="deleteStationary(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

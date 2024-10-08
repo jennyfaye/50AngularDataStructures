@@ -1,3 +1,4 @@
+import { PodcastlistService } from './../../services/podcastlist.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,10 +7,30 @@ import { Component } from '@angular/core';
   styleUrl: './podcastlist.component.css'
 })
 export class PodcastlistComponent {
-  podcastList: string[] = ["Rotten Mango - Episode 102: The Korean Black Widow: Chilling Murder Plot", "Rotten Mango - Episode 65: The Unsolved Murder of the Tegan and Sara Fans" ];
+  podcastList: string[] = [];
   podcast: string = '';
 
-  addPodcast() {
-    this.podcastList.push(this.podcast);
+  constructor(private podcastlistService: PodcastlistService){
+  }
+
+  ngOnInit(): void {
+    this.podcastList = this.podcastlistService.getPodcast();
+  }
+
+  addPodcast(): void {
+    this.podcastlistService.addPodcast(this.podcast);
+    this.podcast = '';
+  }
+
+  updatePodcast(index: number): void {
+    const currentName = this.podcastList[index];
+    const newName = prompt('Enter new podcast:', currentName);
+    if (newName !== null && newName.trim() !== '') {
+      this.podcastlistService.updatePodcast(index, newName.trim());
+    }
+  }
+
+  deletePodcast(index: number): void {
+    this.podcastlistService.deletePodcast(index);
   }
 }

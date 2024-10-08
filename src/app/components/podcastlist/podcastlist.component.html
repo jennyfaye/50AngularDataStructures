@@ -8,14 +8,27 @@
 
       <button (click)="addPodcast()">Add Podcast</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Podcasts:</h3>
-        <ul>
-          <li *ngFor="let podcast of podcastList">
-            {{podcast}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Podcasts</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Podcast</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let podcast of podcastList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ podcast }}</td>
+          <td>
+            <button (click)="updatePodcast(i)">Edit</button> &nbsp;
+            <button (click)="deletePodcast(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

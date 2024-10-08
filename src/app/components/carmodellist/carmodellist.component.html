@@ -6,16 +6,29 @@
       <label for="carModel">Enter a car model: </label> &nbsp;
       <input name="carModel" id="carModel" type="text" [(ngModel)]="carModel"/>
 
-      <button (click)="addCarModel()">Add Car Model</button>
+      <button (click)="addCarmodel()">Add Car Model</button>
     </form>
 
-    <div>
-        <h3>List of Car Models:</h3>
-        <ul>
-          <li *ngFor="let carModel of carModelList">
-            {{carModel}}
-          </li>
-        </ul>
-    </div>
+
+    <h3>List of Car Models</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Car Model</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let carModel of carModelList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ carModel }}</td>
+          <td>
+            <button (click)="updateCarmodel(i)">Edit</button> &nbsp;
+            <button (click)="deleteCarmodel(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

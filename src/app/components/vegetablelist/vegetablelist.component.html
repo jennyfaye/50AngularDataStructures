@@ -9,13 +9,26 @@
       <button (click)="addVegetable()">Add Vegetable</button>
     </form>
 
-    <div>
-        <h3>List of Vegetables:</h3>
-        <ul>
-          <li *ngFor="let vegetable of vegetableList">
-            {{vegetable}}
-          </li>
-        </ul>
-    </div>
+
+    <h3>List of Vegetables</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Vegetable</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vegetable of vegetableList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ vegetable }}</td>
+          <td>
+            <button (click)="updateVegetable(i)">Edit</button> &nbsp;
+            <button (click)="deleteVegetable(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

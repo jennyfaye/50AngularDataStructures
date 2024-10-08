@@ -3,19 +3,32 @@
   <body>
     <h2>Software List</h2>
     <form >
-      <label for="software">Enter a product: </label> &nbsp;
+      <label for="software">Enter a software: </label> &nbsp;
       <input name="software" id="software" type="text" [(ngModel)]="software"/>
 
       <button (click)="addSoftware()">Add Software</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Softwares:</h3>
-        <ul>
-          <li *ngFor="let software of softwareList">
-            {{software}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Softwares</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Software</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let software of softwareList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ software }}</td>
+          <td>
+            <button (click)="updateSoftware(i)">Edit</button> &nbsp;
+            <button (click)="deleteSoftware(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

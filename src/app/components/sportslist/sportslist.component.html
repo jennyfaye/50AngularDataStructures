@@ -9,13 +9,26 @@
       <button (click)="addSport()">Add Sport</button>
     </form>
 
-    <div>
-        <h3>List of Sports:</h3>
-        <ul>
-          <li *ngFor="let sport of sportList">
-            {{sport}}
-          </li>
-        </ul>
-    </div>
+
+    <h3>List of Sports</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Sport</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sport of sportList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ sport }}</td>
+          <td>
+            <button (click)="updateSport(i)">Edit</button> &nbsp;
+            <button (click)="deleteSport(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

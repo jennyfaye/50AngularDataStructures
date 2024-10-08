@@ -8,14 +8,27 @@
 
       <button (click)="addFramework()">Add Framework</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Frameworks:</h3>
-        <ul>
-          <li *ngFor="let framework of frameworkList">
-            {{framework}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Frameworks</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Framework</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let framework of frameworkList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ framework }}</td>
+          <td>
+            <button (click)="updateFramework(i)">Edit</button> &nbsp;
+            <button (click)="deleteFramework(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

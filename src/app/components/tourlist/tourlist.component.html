@@ -12,18 +12,33 @@
       <label for="location">Enter location: </label> &nbsp;
       <input name="location" id="location" type="text" [(ngModel)]="location"/><br><br>
 
-      <button type="button" (click)="addDate()">Add Tour Date</button>
+      <button type="button" (click)="addTour()">Add Tour Date</button>
     </form>
+    <br>
 
-    <div>
-      <h3>List of Tour Dates:</h3>
-      <ul>
-        <li *ngFor="let artist of tourList">
-          <p>Artist: {{ artist.artist }}<br>
-          Date: {{ artist.date }}<br>
-          Location: {{ artist.location }}</p>
-        </li>
-      </ul>
-    </div>
+    <h3>List of Tour Dates</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Artist Name</th>
+          <th>Tour Date</th>
+          <th>Location</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tour of tourList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ tour.artist }}</td>
+          <td>{{ tour.date }}</td>
+          <td>{{ tour.location }}</td>
+          <td>
+            <button (click)="updateTour(i)">Edit</button> &nbsp;
+            <button (click)="deleteTour(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

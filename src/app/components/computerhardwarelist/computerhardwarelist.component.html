@@ -8,14 +8,27 @@
 
       <button (click)="addHardware()">Add Computer Hardware</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Computer Hardwares:</h3>
-        <ul>
-          <li *ngFor="let hardware of hardwareList">
-            {{hardware}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Computer Hardwares</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Computer Hardware</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let hardware of hardwareList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ hardware }}</td>
+          <td>
+            <button (click)="updateHardware(i)">Edit</button> &nbsp;
+            <button (click)="deleteHardware(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

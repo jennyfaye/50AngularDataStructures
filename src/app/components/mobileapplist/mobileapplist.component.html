@@ -8,14 +8,27 @@
 
       <button (click)="addApp()">Add Mobile App</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Mobile Apps:</h3>
-        <ul>
-          <li *ngFor="let apps of appsList">
-            {{apps}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Mobile Apps</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Mobile App</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let apps of appsList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ apps }}</td>
+          <td>
+            <button (click)="updateApp(i)">Edit</button> &nbsp;
+            <button (click)="deleteApp(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

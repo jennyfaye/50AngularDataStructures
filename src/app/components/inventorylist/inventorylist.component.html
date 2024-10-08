@@ -14,16 +14,31 @@
       <br><br>
       <button type="button" (click)="addItem()">Add Item</button>
     </form>
+    <br>
 
-    <div>
-      <h3>List of Items:</h3>
-      <ul>
-        <li *ngFor="let item of itemList">
-          <p>Item: {{ item.item }}<br>
-          Quantity: {{ item.quantity }}<br>
-          Price: ₱{{ item.price }}<br></p>
-        </li>
-      </ul>
-    </div>
+    <h3>List of Inventory Items</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of itemList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ item.item }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.price }}</td>
+          <td>
+            <button (click)="updateItem(i)">Edit</button> &nbsp;
+            <button (click)="deleteItem(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

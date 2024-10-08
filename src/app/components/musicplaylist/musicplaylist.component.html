@@ -1,21 +1,34 @@
 <!doctype html>
 <html>
   <body>
-    <h2>Music List</h2>
+    <h2>Music PlayList</h2>
     <form >
-      <label for="music">Enter a music: </label> &nbsp;
+      <label for="music">Enter a song title: </label> &nbsp;
       <input name="music" id="music" type="text" [(ngModel)]="music"/>
 
-      <button (click)="addMusic()">Add Music</button>
+      <button (click)="addMusic()">Add Song Title</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Musics:</h3>
-        <ul>
-          <li *ngFor="let music of musicList">
-            {{music}}
-          </li>
-        </ul>
-    </div>
+    <h3>Music Playlist</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Song Title</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let music of musicList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ music }}</td>
+          <td>
+            <button (click)="updateMusic(i)">Edit</button> &nbsp;
+            <button (click)="deleteMusic(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

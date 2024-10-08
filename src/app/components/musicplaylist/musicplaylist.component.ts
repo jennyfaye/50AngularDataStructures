@@ -1,3 +1,4 @@
+import { MusicplaylistService } from './../../services/musicplaylist.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,10 +7,30 @@ import { Component } from '@angular/core';
   styleUrl: './musicplaylist.component.css'
 })
 export class MusicplaylistComponent {
-  musicList: string[] = ["Down Bad", "The Prophecy"];
+  musicList: string[] = [];
   music: string = '';
 
-  addMusic() {
-    this.musicList.push(this.music);
+  constructor(private musicplaylistService: MusicplaylistService){
+  }
+
+  ngOnInit(): void {
+    this.musicList = this.musicplaylistService.getMusic();
+  }
+
+  addMusic(): void {
+    this.musicplaylistService.addMusic(this.music);
+    this.music = '';
+  }
+
+  updateMusic(index: number): void {
+    const currentName = this.musicList[index];
+    const newName = prompt('Enter new song title:', currentName);
+    if (newName !== null && newName.trim() !== '') {
+      this.musicplaylistService.updateMusic(index, newName.trim());
+    }
+  }
+
+  deleteMusic(index: number): void {
+    this.musicplaylistService.deleteMusic(index);
   }
 }

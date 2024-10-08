@@ -8,14 +8,27 @@
 
       <button (click)="addGrocery()">Add Grocery</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Grocery:</h3>
-        <ul>
-          <li *ngFor="let grocery of groceryList">
-            {{grocery}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Groceries</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Grocery</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let grocery of groceryList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ grocery }}</td>
+          <td>
+            <button (click)="updateGrocery(i)">Edit</button> &nbsp;
+            <button (click)="deleteGrocery(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

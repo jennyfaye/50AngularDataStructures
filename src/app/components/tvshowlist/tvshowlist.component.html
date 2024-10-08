@@ -8,14 +8,27 @@
 
       <button (click)="addShow()">Add TV Show</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of TV Shows:</h3>
-        <ul>
-          <li *ngFor="let show of showList">
-            {{show}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of TV Shows</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>TV Show</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let show of showList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ show }}</td>
+          <td>
+            <button (click)="updateShow(i)">Edit</button> &nbsp;
+            <button (click)="deleteShow(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

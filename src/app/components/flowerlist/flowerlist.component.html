@@ -8,14 +8,27 @@
 
       <button (click)="addFlower()">Add Flower</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Flowers:</h3>
-        <ul>
-          <li *ngFor="let flower of flowerList">
-            {{flower}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Flowers</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Flower</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let flower of flowerList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ flower }}</td>
+          <td>
+            <button (click)="updateFlower(i)">Edit</button> &nbsp;
+            <button (click)="deleteFlower(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

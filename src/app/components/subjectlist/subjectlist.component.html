@@ -9,13 +9,26 @@
       <button (click)="addSubject()">Add Subject</button>
     </form>
 
-    <div>
-        <h3>List of Subjects:</h3>
-        <ul>
-          <li *ngFor="let subject of subjectList">
-            {{subject}}
-          </li>
-        </ul>
-    </div>
+
+    <h3>List of Subjects</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Subject</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let subject of subjectList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ subject }}</td>
+          <td>
+            <button (click)="updateSubject(i)">Edit</button> &nbsp;
+            <button (click)="deleteSubject(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

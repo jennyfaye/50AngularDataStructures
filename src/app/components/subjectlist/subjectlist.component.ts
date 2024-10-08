@@ -1,3 +1,4 @@
+import { SubjectlistService } from './../../services/subjectlist.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,10 +7,30 @@ import { Component } from '@angular/core';
   styleUrl: './subjectlist.component.css'
 })
 export class SubjectlistComponent {
-  subjectList: string[] = ["SIA 102", "IAS 102"];
+  subjectList: string[] = [];
   subject: string = '';
 
-  addSubject() {
-    this.subjectList.push(this.subject);
+  constructor(private subjectlistService: SubjectlistService){
+  }
+
+  ngOnInit(): void {
+    this.subjectList = this.subjectlistService.getSubject();
+  }
+
+  addSubject(): void {
+    this.subjectlistService.addSubject(this.subject);
+    this.subject = '';
+  }
+
+  updateSubject(index: number): void {
+    const currentName = this.subjectList[index];
+    const newName = prompt('Enter new subject:', currentName);
+    if (newName !== null && newName.trim() !== '') {
+      this.subjectlistService.updateSubject(index, newName.trim());
+    }
+  }
+
+  deleteSubject(index: number): void {
+    this.subjectlistService.deleteSubject(index);
   }
 }

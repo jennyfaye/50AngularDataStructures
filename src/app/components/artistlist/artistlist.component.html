@@ -8,14 +8,27 @@
 
       <button (click)="addArtist()">Add Artist</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Artists:</h3>
-        <ul>
-          <li *ngFor="let artist of artistList">
-            {{artist}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Artist Names</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Artist Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let artist of artistList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ artist }}</td>
+          <td>
+            <button (click)="updateArtist(i)">Edit</button> &nbsp;
+            <button (click)="deleteArtist(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

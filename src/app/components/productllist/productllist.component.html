@@ -9,13 +9,26 @@
       <button (click)="addProduct()">Add Product</button>
     </form>
 
-    <div>
-        <h3>List of Products:</h3>
-        <ul>
-          <li *ngFor="let product of productList">
-            {{product}}
-          </li>
-        </ul>
-    </div>
+
+    <h3>List of Products</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Products</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of productList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ product }}</td>
+          <td>
+            <button (click)="updateProduct(i)">Edit</button> &nbsp;
+            <button (click)="deleteProduct(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

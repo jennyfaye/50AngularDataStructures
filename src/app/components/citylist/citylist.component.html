@@ -8,14 +8,27 @@
 
       <button (click)="addCity()">Add City</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Cities:</h3>
-        <ul>
-          <li *ngFor="let city of cityList">
-            {{city}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Cities</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Cities</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let city of cityList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ city }}</td>
+          <td>
+            <button (click)="updateCity(i)">Edit</button> &nbsp;
+            <button (click)="deleteCity(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

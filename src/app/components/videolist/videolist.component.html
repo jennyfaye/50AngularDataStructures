@@ -8,14 +8,27 @@
 
       <button (click)="addVideo()">Add Video</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Videos:</h3>
-        <ul>
-          <li *ngFor="let video of videoList">
-            {{video}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Videos</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Video</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let video of videoList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ video }}</td>
+          <td>
+            <button (click)="updateVideo(i)">Edit</button> &nbsp;
+            <button (click)="deleteVideo(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

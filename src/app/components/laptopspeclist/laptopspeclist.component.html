@@ -15,15 +15,31 @@
       <button type="button" (click)="addSpec()">Add Laptop Specification</button>
     </form>
 
-    <div>
-      <h3>List of Laptop Specifications:</h3>
-      <ul>
-        <li *ngFor="let spec of specList">
-          <p> Processor: {{ spec.processor }},<br>
-          RAM: {{ spec.ram }} GB,<br>
-          OS: {{ spec.os }}<br></p>
-        </li>
-      </ul>
-    </div>
+    <br>
+
+    <h3>List of Laptop Specifications</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Laptop Processor</th>
+          <th>RAM</th>
+          <th>Operating System</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let spec of specList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ spec.processor }}</td>
+          <td>{{ spec.ram }} GB</td>
+          <td>{{ spec.os }}</td>
+          <td>
+            <button (click)="updateSpec(i)">Edit</button> &nbsp;
+            <button (click)="deleteSpec(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

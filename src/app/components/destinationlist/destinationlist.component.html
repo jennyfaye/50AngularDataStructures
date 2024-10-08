@@ -8,14 +8,27 @@
 
       <button (click)="addDestination()">Add Destination</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Destinations:</h3>
-        <ul>
-          <li *ngFor="let destination of destinationList">
-            {{destination}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Destinations</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Destination</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let destination of destinationList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ destination }}</td>
+          <td>
+            <button (click)="updateDestination(i)">Edit</button> &nbsp;
+            <button (click)="deleteDestination(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

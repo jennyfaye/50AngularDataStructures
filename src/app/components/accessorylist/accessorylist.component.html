@@ -9,13 +9,27 @@
       <button (click)="addAccessory()">Add Accessory</button>
     </form>
 
-    <div>
-        <h3>List of Accessories:</h3>
-        <ul>
-          <li *ngFor="let accessory of accessoryList">
-            {{accessory}}
-          </li>
-        </ul>
-    </div>
+    <br>
+
+    <h3>List of Accessories</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Accessory</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let accessory of accessoryList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ accessory }}</td>
+          <td>
+            <button (click)="updateAccessory(i)">Edit</button> &nbsp;
+            <button (click)="deleteAccessory(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

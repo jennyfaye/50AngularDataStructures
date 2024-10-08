@@ -8,14 +8,27 @@
 
       <button (click)="addGame()">Add Game</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Games:</h3>
-        <ul>
-          <li *ngFor="let game of gameList">
-            {{game}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Games</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Game</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let game of gameList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ game }}</td>
+          <td>
+            <button (click)="updateGame(i)">Edit</button> &nbsp;
+            <button (click)="deleteGame(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

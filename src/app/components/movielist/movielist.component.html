@@ -8,14 +8,27 @@
 
       <button (click)="addMovie()">Add Movie</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Movies:</h3>
-        <ul>
-          <li *ngFor="let movie of movieList">
-            {{movie}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Movies</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Movie Titles</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let movie of movieList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ movie }}</td>
+          <td>
+            <button (click)="updateMovie(i)">Edit</button> &nbsp;
+            <button (click)="deleteMovie(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

@@ -9,13 +9,26 @@
       <button (click)="addAnimal()">Add Animal</button>
     </form>
 
-    <div>
-        <h3>List of Animals:</h3>
-        <ul>
-          <li *ngFor="let animal of animalList">
-            {{animal}}
-          </li>
-        </ul>
-    </div>
+
+    <h3>List of Animals</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Animal</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let animal of animalList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ animal }}</td>
+          <td>
+            <button (click)="updateAnimal(i)">Edit</button> &nbsp;
+            <button (click)="deleteAnimal(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

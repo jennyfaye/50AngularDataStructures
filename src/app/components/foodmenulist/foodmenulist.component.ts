@@ -1,3 +1,4 @@
+import { FoodmenulistService } from './../../services/foodmenulist.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,10 +7,30 @@ import { Component } from '@angular/core';
   styleUrl: './foodmenulist.component.css'
 })
 export class FoodmenulistComponent {
-  foodList: string[] = ["Steak", "Pasta"];
+  foodList: string[] = [];
   food: string = '';
 
-  addFood() {
-    this.foodList.push(this.food);
+  constructor(private foodmenulistService: FoodmenulistService){
+  }
+
+  ngOnInit(): void {
+    this.foodList = this.foodmenulistService.getFood();
+  }
+
+  addFood(): void {
+    this.foodmenulistService.addFood(this.food);
+    this.food = '';
+  }
+
+  updateFood(index: number): void {
+    const currentName = this.foodList[index];
+    const newName = prompt('Enter new food:', currentName);
+    if (newName !== null && newName.trim() !== '') {
+      this.foodmenulistService.updateFood(index, newName.trim());
+    }
+  }
+
+  deleteFood(index: number): void {
+    this.foodmenulistService.deleteFood(index);
   }
 }

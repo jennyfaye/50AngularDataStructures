@@ -8,14 +8,27 @@
 
       <button (click)="addComposer()">Add Composer</button>
     </form>
+    <br>
 
-    <div>
-        <h3>List of Composers:</h3>
-        <ul>
-          <li *ngFor="let composer of composerList">
-            {{composer}}
-          </li>
-        </ul>
-    </div>
+    <h3>List of Composer Names</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Composer Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let composer of composerList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ composer }}</td>
+          <td>
+            <button (click)="updateComposer(i)">Edit</button> &nbsp;
+            <button (click)="deleteComposer(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

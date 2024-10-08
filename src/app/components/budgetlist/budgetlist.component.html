@@ -11,15 +11,28 @@
       <br><br>
       <button type="button" (click)="addBudget()">Add Budget</button>
     </form>
+    <br>
 
-    <div>
-      <h3>List of Budgets:</h3>
-      <ul>
-        <li *ngFor="let item of budgetList">
-          <p>Item: {{ item.item }}<br>
-          Budget: ₱{{ item.amount }}</p>
-        </li>
-      </ul>
-    </div>
+    <h3>List of Budget</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Item</th>
+          <th>Amount</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let budget of budgetList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ budget.item }}</td>
+          <td>{{ budget.amount }}</td>
+          <td>
+            <button (click)="updateBudget(i)">Edit</button> &nbsp;
+            <button (click)="deleteBudget(i)">Delete</button>
+          </td>
+      </tbody>
+    </table>
   </body>
 </html>
